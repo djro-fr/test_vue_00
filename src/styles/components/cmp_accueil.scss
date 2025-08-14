@@ -1,0 +1,30 @@
+@use '../vars' as vars;
+
+root{
+font-size:16px;
+}
+html{
+padding: 0;
+}
+body{
+padding: 0;
+}
+img{
+margin: 50px auto;
+width: 500px;
+}
+button{
+font-size: vars.$font_s_xl;
+padding: .5rem 1rem;
+border: none;
+font-family: vars.$font_f_txt;
+&.vert{
+    background-color: #a5ffa9;
+    border: none;
+
+}
+}
+h1{
+font-family: vars.$font_f_titre;
+font-size: vars.$font_s_xxl;
+}
