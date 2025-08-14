@@ -1,30 +1,54 @@
 @use '../vars' as vars;
 
 root{
-font-size:16px;
+    font-size:16px;
 }
 html{
-padding: 0;
+    padding: 0;
 }
-body{
-padding: 0;
+    body{
+    padding: 0;
 }
 img{
-margin: 50px auto;
-width: 500px;
+    margin: 20px auto;
+    width: 500px;
 }
 button{
-font-size: vars.$font_s_xl;
-padding: .5rem 1rem;
-border: none;
-font-family: vars.$font_f_txt;
-&.vert{
-    background-color: #a5ffa9;
+    font-size: vars.$font_s_xl;
+    padding: .5rem 1rem;
     border: none;
-
+    font-family: vars.$font_f_txt;
+    &.vert{
+        background-color: #a5ffa9;
+        border: none;
+    }
 }
+p{
+    &.info{
+        font-size: vars.$font_s_xl;
+        margin-top: 0;
+        padding-top: 0;
+    }
 }
 h1{
-font-family: vars.$font_f_titre;
-font-size: vars.$font_s_xxl;
+    font-family: vars.$font_f_titre;
+    font-size: vars.$font_s_xxl;
+}
+h2{
+    margin-top: 40px;
+}
+div{
+   & .line{
+        p { 
+            display: inline-block;
+            padding-left: 10px;
+            margin-bottom: 0;
+        }
+   } 
+}
+span.teinte{
+    background-color: white;
+    display: inline-block;
+    width: 60px;
+    height: 15px;
 }
