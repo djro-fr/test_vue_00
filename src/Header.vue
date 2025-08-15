@@ -1,23 +1,31 @@
-<template>
-  <header>
-    <img class="logo" :src="logo" />
-    <p>C'est le header</p>
-  </header>
-</template>
-
 <script>
 export default {
   data() {
-    return {}
+    return {
+      unMot: 'mirliflore'
+    }
   },
   props:{
-    logo:{
+    monLogo:{
       type: String
+    }
+  },
+  methods: {
+    clicHeader(){
+      this.$emit("clic-header", this.unMot)
     }
   }
 }
 </script>
+<template>
+  <header>
+    <img class="logo" :src="monLogo" />
+    <p>C'est le header</p>
+    <button @click="clicHeader()">clic</button>
+  </header>
+</template>
+
 
 <style scoped lang="scss">
-  @use '@/styles/components/header.scss';
+@use '@/styles/components/header.scss';
 </style>

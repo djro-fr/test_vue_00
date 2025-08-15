@@ -1,6 +1,6 @@
 <script>
-import Header from './Header.vue'
-
+  import Header from './Header.vue'
+  //----------------------------------
   export default {
     components: {
       HeaderComponent: Header
@@ -51,6 +51,17 @@ import Header from './Header.vue'
         // à utiliser si on a plusieurs tableaux d'image et plusieurs index<br/>
         // exemple d'utilisation : changeImgIdx(painting, 'index')
         this[indexImage] = this[indexImage] < (arrayImgSrc.length - 1) ? this[indexImage] + 1 : 0;
+      },
+      changeFond(mot){
+        //bascule la classe
+        document.body.classList.toggle('dark');
+        // bascule le mot dans le titre
+        const h1 = document.querySelector("h1");
+        if (document.body.classList.contains('dark')) {
+          h1.textContent += ", " + mot;
+        }else{
+          h1.textContent = h1.textContent.replace(", " + mot, '');
+        }
       }
     },
     computed:{
@@ -74,7 +85,7 @@ import Header from './Header.vue'
 </script>
 
 <template>
-  <header-component :logo='painting[2]'></header-component>
+  <header-component @clic-header="changeFond($event)" :mon-logo='painting[2]'></header-component>
   <h1>{{vH1}}</h1>
   <div>
     <button v-if="price < 3" @click="price++">

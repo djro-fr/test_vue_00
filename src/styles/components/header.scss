@@ -6,7 +6,6 @@ header{
   width: 100%;
   height: 60px;
   p{
-    width: 90%;
     text-align: center;
     margin: 0 auto;
   }
@@ -14,6 +13,9 @@ header{
   img.logo{
     height: 100%;
     position: absolute;
-
+  }
+  button{
+    padding : 5px 10px;
+    margin-right: 20px;
   }
 }
