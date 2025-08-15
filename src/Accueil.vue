@@ -69,6 +69,7 @@
 </script>
 
 <template>
+  <header-component></header-component>
   <h1>{{vH1}}</h1>
   <div>
     <button v-if="price < 3" @click="price++">
@@ -145,8 +146,8 @@
     <Transition name="bounce">
       <p v-if="testAnim">hello</p>
     </Transition>
-    </div>
-  <button @click="testAnim = !testAnim">Clic</button>
+    <button @click="testAnim = !testAnim">Clic</button>
+  </div>
 
 
 
@@ -157,5 +158,5 @@
 </template>
 
 <style scoped lang="scss">
-  @use '@/styles/components/cmp_accueil.scss';
+  @use '@/styles/components/accueil.scss';
 </style>

@@ -1,4 +1,10 @@
 import { createApp } from 'vue'
-import App from './App.vue'
+import Header from './Header.vue'
+import App from './Accueil.vue'
 
-createApp(App).mount('#app')
+import './styles/reset.scss'
+
+const app = createApp(App)
+app.component('HeaderComponent', Header)
+app.mount('#app')
+
