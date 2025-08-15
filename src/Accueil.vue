@@ -1,5 +1,10 @@
 <script>
+import Header from './Header.vue'
+
   export default {
+    components: {
+      HeaderComponent: Header
+    },
     data() {
       return {
         vH1: "C'est l'App 1",
