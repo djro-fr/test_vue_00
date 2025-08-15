@@ -1,54 +1,111 @@
 @use '../vars' as vars;
 
 root{
-    font-size:16px;
+  font-size:16px;
 }
 html{
-    padding: 0;
+  padding: 0;
 }
-    body{
-    padding: 0;
+body{
+  padding: 0;
 }
 img{
-    margin: 20px auto;
-    width: 500px;
+  margin: 20px auto;
+  width: 500px;
 }
 button{
-    font-size: vars.$font_s_xl;
-    padding: .5rem 1rem;
+  font-size: vars.$font_s_xl;
+  padding: .5rem 1rem;
+  border: none;
+  font-family: vars.$font_f_txt;
+  &.vert{
+    background-color: vars.$vert_ok;
     border: none;
-    font-family: vars.$font_f_txt;
-    &.vert{
-        background-color: #a5ffa9;
-        border: none;
-    }
+  }
 }
 p{
-    &.info{
-        font-size: vars.$font_s_xl;
-        margin-top: 0;
-        padding-top: 0;
-    }
+  &.info{
+    font-size: vars.$font_s_xl;
+    margin-top: 0;
+    padding-top: 0;
+  }
 }
 h1{
-    font-family: vars.$font_f_titre;
-    font-size: vars.$font_s_xxl;
+  font-family: vars.$font_f_titre;
+  font-size: vars.$font_s_xxl;
 }
 h2{
-    margin-top: 40px;
+  font-family: vars.$font_f_titre;
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-top: 40px;
 }
 div{
-   & .line{
-        p { 
-            display: inline-block;
-            padding-left: 10px;
-            margin-bottom: 0;
-        }
-   } 
+  & .line{
+    p {
+      display: inline-block;
+      padding-left: 10px;
+      margin-bottom: 0;
+    }
+  }
 }
 span.teinte{
-    background-color: white;
-    display: inline-block;
-    width: 60px;
-    height: 15px;
+  background-color: white;
+  display: inline-block;
+  width: 60px;
+  height: 15px;
+}
+
+#test_class{
+  display: block;
+  height: 40px;
+  width: 600px;
+  &.red{
+    background-color: red ;
+  }
+  &.yellow{
+    background-color: yellow ;
+  }
+}
+
+// Animations
+#transi p{
+  display: block;
+  height: 40px;
+  width: 200px;
+  background-color: grey;
+}
+@keyframes bounce-in {
+  0% {transform: scale(0); background-color: red;}
+  50% {transform: scale(1.25); background-color: rgb(220, 255, 62);}
+  100% {transform: scale(1); background-color: rgb(53, 255, 35);}
+}
+@keyframes bounce-out {
+  0% {transform: scale(1); background-color: rgb(0, 217, 255);}
+  50% {transform: scale(1.25); background-color: rgb(39, 0, 131);}
+  100% {transform: scale(0); background-color: rgb(0, 0, 0);}
+}
+.bounce-enter-active{
+   animation: bounce-in 2s;
+}
+.bounce-leave-active{
+   animation: bounce-out 2s;
+}
+
+/*
+  Transitions
+*/
+.slide-fade-enter-active {
+  transition: all 0.3s ease-out;
+}
+
+.slide-fade-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+  transform: translateX(20px);
+  opacity: 0;
 }

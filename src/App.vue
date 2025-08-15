@@ -29,7 +29,15 @@
           {type: "secondaire", nom: "orange", teinte: "#ff9214"},
           {type: "secondaire", nom: "vert", teinte: "#00c724"},
           {type: "secondaire", nom: "violet", teinte: "#a800d6"}
-        ]
+        ],
+        promo:"",
+        promo2:"",
+        promoMsg:"",
+        prenom: 'Jose',
+        nom:'Garcia',
+        testClassColor:'',
+        showTr: false,
+        testAnim:false
       }
     },
     methods: {
@@ -39,7 +47,24 @@
         // exemple d'utilisation : changeImgIdx(painting, 'index')
         this[indexImage] = this[indexImage] < (arrayImgSrc.length - 1) ? this[indexImage] + 1 : 0;
       }
+    },
+    computed:{
+      nomComplet(){
+        return this.prenom + " " + this.nom;
+      }
+    },
+    watch:{
+      promo2(newValue, oldValue){
+        if (newValue === 'toto'){
+          this.promoMsg =' => formidable'
+        }else{
+          this.promoMsg =''
+        }
+      }
     }
+
+
+
   }
 </script>
 
@@ -53,7 +78,7 @@
       Le prix est {{price}}. C'est un super chiffre !
     </button>
   </div>
-  <img width="500" :src="painting[index]"/>  
+  <img width="500" :src="painting[index]"/>
   <div class="line">
       <button @click="changeImg(painting, 'index')">
         n°{{index+1}} : changer
@@ -63,31 +88,70 @@
 
   <h2>Jours de la semaine</h2>
   <ul v-for="jour in semaine" :key="jour">
-    <li>{{ jour }}</li>    
+    <li>{{ jour }}</li>
   </ul>
 
   <h2>Les gens</h2>
   <ul v-for="prenom in Array.from(gens)" :key="prenom">
-    <li>{{ prenom }}</li>    
+    <li>{{ prenom }}</li>
   </ul>
-      
+
   <h2>Couleurs primaires</h2>
   <ul v-for="coul in couleurs" :key="coul.nom">
     <li v-if="coul.type === 'primaire'">
-      <!-- 
-      En JavaScript, les noms de propriétés d'objet ne peuvent pas contenir de tirets 
+      <!--
+      En JavaScript, les noms de propriétés d'objet ne peuvent pas contenir de tirets
       On utilise donc l'équivalent du nom de classe CSS mais passé en camelCase
       -->
       {{ coul.nom }} <span class="teinte" :style="{backgroundColor: coul.teinte}"></span>
-    </li>    
-  </ul> 
-      
+    </li>
+  </ul>
+
   <h2>Couleurs secondaires</h2>
   <ul v-for="coul in couleurs" :key="coul.nom">
     <li v-if="coul.type === 'secondaire'">
       {{ coul.nom }} <span class="teinte" :style="{backgroundColor: coul.teinte}"></span>
-    </li>    
-  </ul> 
+    </li>
+  </ul>
+
+  <h2>Code promo 0+0</h2>
+  <input v-model="promo" placeholder="code promo" />
+  <p v-if="promo === 'toto'">bravo!</p>
+  <p v-else>try again!</p>
+
+  <h2>Test Computed</h2>
+  <p>{{ nomComplet }}</p>
+
+  <h2>Observateurs</h2>
+  <div class="line">
+    <input v-model="promo2" placeholder="code promo" />
+    <p>{{promoMsg}}</p>
+  </div>
+
+  <h2>Test Class</h2>
+  <div id="test_class" :class="{red: testClassColor === 'r', yellow: testClassColor === 'y'}">
+    <button @click="testClassColor ='r'">Rouge</button>
+    <button @click="testClassColor ='y'">Jaune</button>
+  </div>
+
+  <h2>Transitions</h2>
+  <Transition name="slide-fade">
+    <p v-if="showTr">hello</p>
+  </Transition>
+  <button @click="showTr = !showTr">Clic</button>
+
+  <h2>Animations</h2>
+  <div id="transi">
+    <Transition name="bounce">
+      <p v-if="testAnim">hello</p>
+    </Transition>
+    </div>
+  <button @click="testAnim = !testAnim">Clic</button>
+
+
+
+
+
 
 
 </template>
