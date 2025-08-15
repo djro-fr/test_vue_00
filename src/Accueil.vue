@@ -1,9 +1,14 @@
 <script>
   import Header from './Header.vue'
+  import Footer from './Footer.vue'
+  import BigFooter from './BigFooter.vue'
+
   //----------------------------------
   export default {
     components: {
-      HeaderComponent: Header
+      HeaderComponent: Header,
+      Footer,
+      BigFooter
     },
     data() {
       return {
@@ -42,7 +47,8 @@
         nom:'Garcia',
         testClassColor:'',
         showTr: false,
-        testAnim:false
+        testAnim:false,
+        currentFooter:'BigFooter'
       }
     },
     methods: {
@@ -62,6 +68,9 @@
         }else{
           h1.textContent = h1.textContent.replace(", " + mot, '');
         }
+      },
+      changeFooter(){
+        this.currentFooter = this.currentFooter === 'Footer' ? 'BigFooter' : 'Footer';
       }
     },
     computed:{
@@ -83,6 +92,8 @@
 
   }
 </script>
+
+<!-- :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
 
 <template>
   <header-component @clic-header="changeFond($event)" :mon-logo='painting[2]'></header-component>
@@ -165,7 +176,9 @@
     <button @click="testAnim = !testAnim">Clic</button>
   </div>
 
-
+  <h2>Composants Dynamiques</h2>
+  <button @click="changeFooter()">Changer le footer</button>
+  <component :is="currentFooter"></component>
 
 
 
