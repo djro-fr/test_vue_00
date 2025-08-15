@@ -74,7 +74,7 @@ import Header from './Header.vue'
 </script>
 
 <template>
-  <header-component></header-component>
+  <header-component :logo='painting[2]'></header-component>
   <h1>{{vH1}}</h1>
   <div>
     <button v-if="price < 3" @click="price++">

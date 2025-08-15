@@ -1,5 +1,6 @@
 <template>
   <header>
+    <img class="logo" :src="logo" />
     <p>C'est le header</p>
   </header>
 </template>
@@ -8,6 +9,11 @@
 export default {
   data() {
     return {}
+  },
+  props:{
+    logo:{
+      type: String
+    }
   }
 }
 </script>
