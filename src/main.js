@@ -1,7 +1,7 @@
 import { createApp } from 'vue'
-import App from './Accueil.vue'
+import App from './App.vue'
 
-import './styles/reset.scss'
+import './assets/styles/reset.scss'
 
 const app = createApp(App)
 app.mount('#app')

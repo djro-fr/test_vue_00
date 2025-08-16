@@ -27,5 +27,5 @@ export default {
 
 
 <style scoped lang="scss">
-@use '@/styles/components/header.scss';
+@use '@/assets/styles/components/header.scss';
 </style>

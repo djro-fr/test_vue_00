@@ -28,5 +28,5 @@ export default {
 </template>
 
 <style scoped lang="scss">
-  @use '@/styles/components/modale.scss';
+  @use '@/assets/styles/components/modale.scss';
 </style>

@@ -18,5 +18,5 @@ export default {
 
 
 <style scoped lang="scss">
-@use '@/styles/components/footer.scss';
+@use '@/assets/styles/components/footer.scss';
 </style>

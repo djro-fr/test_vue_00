@@ -1,8 +1,8 @@
 <script>
-  import Header from './Header.vue'
-  import Footer from './Footer.vue'
-  import BigFooter from './BigFooter.vue'
-import MyModal from './MyModal.vue'
+  import Header from './components/Header.vue'
+  import Footer from './components/Footer.vue'
+  import BigFooter from './components/BigFooter.vue'
+import MyModal from './components/MyModal.vue'
 
   //----------------------------------
   export default {
@@ -17,9 +17,9 @@ import MyModal from './MyModal.vue'
         vH1: "C'est l'App 1",
         price: 0,
         painting: [
-          "src/images/painting1.jpg",
-          "src/images/painting2.jpg",
-          "src/images/painting3.jpg"
+          "src/assets/images/painting1.jpg",
+          "src/assets/images/painting2.jpg",
+          "src/assets/images/painting3.jpg"
         ],
         index:0,
         semaine: [
@@ -50,7 +50,7 @@ import MyModal from './MyModal.vue'
         testClassColor:'',
         showTr: false,
         testAnim: false,
-        currentFooter:'BigFooter',
+        currentFooter:'Footer',
         showModal: false
       }
     },
@@ -199,5 +199,5 @@ import MyModal from './MyModal.vue'
 </template>
 
 <style scoped lang="scss">
-  @use '@/styles/components/accueil.scss';
+  @use '@/assets/styles/components/accueil.scss';
 </style>
