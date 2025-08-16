@@ -1,10 +1,13 @@
 <script>
+
+import FooterChild from './FooterChild.vue'
 export default {
+  components:{
+    FooterChild
+  },
   data() {
     return {
     }
-  },
-  props:{
   },
   methods: {
   }
@@ -13,6 +16,7 @@ export default {
 <template>
   <footer>
     <p>footer</p>
+    <footer-child></footer-child>
   </footer>
 </template>
 

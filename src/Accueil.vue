@@ -51,6 +51,13 @@
         currentFooter:'BigFooter'
       }
     },
+    provide(){
+      return {
+        messageFooter: this.vH1
+      }
+    },
+    props:{
+    },
     methods: {
       changeImg(arrayImgSrc, indexImage){
         // méthode avec index en propriété dynamique pour changer l'image
