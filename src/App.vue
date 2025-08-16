@@ -2,15 +2,17 @@
   import Header from './components/Header.vue'
   import Footer from './components/Footer.vue'
   import BigFooter from './components/BigFooter.vue'
-import MyModal from './components/MyModal.vue'
+  import MyModal from './components/MyModal.vue'
+  import Home from './components/Home.vue'
 
   //----------------------------------
   export default {
     components: {
-      HeaderComponent: Header,
+      Header,
       Footer,
       BigFooter,
-      MyModal
+      MyModal,
+      Home
     },
     data() {
       return {
@@ -106,8 +108,18 @@ import MyModal from './components/MyModal.vue'
 <!-- :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
 
 <template>
-  <header-component @clic-header="changeFond($event)" :mon-logo='painting[2]'></header-component>
+  <Header @clic-header="changeFond($event)" :mon-logo='painting[2]' />
   <h1>{{vH1}}</h1>
+  <Home>
+    <p>
+      Chabada
+    </p>
+    <template v-slot:welcome>
+      <h3>
+        Bienvenue les cocos
+      </h3>
+    </template>
+  </Home>
   <div>
     <button v-if="price < 3" @click="price++">
       Le prix est {{price}}
@@ -189,7 +201,7 @@ import MyModal from './components/MyModal.vue'
   <h2>Modale et Teleport</h2>
   <button id="show-modal" @click="showModal = true">Modale</button>
   <teleport to="body">
-    <my-modal :show="showModal" @close="showModal = false"></my-modal>
+    <MyModal :show="showModal" @close="showModal = false" />
   </teleport>
 
   <h2>Composants Dynamiques</h2>
