@@ -2,13 +2,15 @@
   import Header from './Header.vue'
   import Footer from './Footer.vue'
   import BigFooter from './BigFooter.vue'
+import MyModal from './MyModal.vue'
 
   //----------------------------------
   export default {
     components: {
       HeaderComponent: Header,
       Footer,
-      BigFooter
+      BigFooter,
+      MyModal
     },
     data() {
       return {
@@ -47,8 +49,9 @@
         nom:'Garcia',
         testClassColor:'',
         showTr: false,
-        testAnim:false,
-        currentFooter:'BigFooter'
+        testAnim: false,
+        currentFooter:'BigFooter',
+        showModal: false
       }
     },
     provide(){
@@ -183,13 +186,15 @@
     <button @click="testAnim = !testAnim">Clic</button>
   </div>
 
+  <h2>Modale et Teleport</h2>
+  <button id="show-modal" @click="showModal = true">Modale</button>
+  <teleport to="body">
+    <my-modal :show="showModal" @close="showModal = false"></my-modal>
+  </teleport>
+
   <h2>Composants Dynamiques</h2>
   <button @click="changeFooter()">Changer le footer</button>
   <component :is="currentFooter"></component>
-
-
-
-
 
 </template>
 
